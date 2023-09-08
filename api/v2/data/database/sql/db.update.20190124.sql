@@ -1,0 +1,1 @@
+ALTER TABLE `xxbdo_login_attempts` ADD `dispositivo` VARCHAR(100) NULL AFTER `usuario`;

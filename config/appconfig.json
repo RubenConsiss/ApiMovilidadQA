@@ -1,0 +1,32 @@
+{
+	"generacion":true,
+	"recepcion":true,
+	"bdo":true,
+	"preinv":true,
+	"etiqueteo":true,
+	"portales":true,
+	"pendientes":true,
+	"utensilios":true,
+	"compra":true,
+	"indicadores":true,
+	"rolpreinv":true,
+	"reclutamiento":true,
+	"calendario":true,
+	"cortez":true,
+	"modulos":[
+        {"nombre":"generacion", "visible":true, "activo":true},
+	    {"nombre":"recepcion", "visible":true, "activo":true},
+	    {"nombre":"bdo", "visible":true, "activo":true},
+	    {"nombre":"preinv", "visible":true, "activo":true},
+	    {"nombre":"etiqueteo", "visible":true, "activo":true},
+	    {"nombre":"portales", "visible":true, "activo":true},
+	    {"nombre":"pendientes", "visible":true, "activo":true},
+	    {"nombre":"utensilios", "visible":true, "activo":true},
+	    {"nombre":"compra", "visible":true, "activo":true},
+	    {"nombre":"indicadores", "visible":true, "activo":true},
+	    {"nombre":"rolpreinv", "visible":true, "activo":true},
+	    {"nombre":"reclutamiento", "visible":true, "activo":true},
+	    {"nombre":"calendario", "visible":true, "activo":true},
+	    {"nombre":"cortez", "visible":true, "activo":true}
+    ]
+}

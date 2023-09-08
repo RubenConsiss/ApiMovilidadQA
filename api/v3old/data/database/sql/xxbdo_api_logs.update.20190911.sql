@@ -1,0 +1,1 @@
+ALTER TABLE `xxbdo_api_logs` ADD `res_body` TEXT NULL AFTER `r_status`;

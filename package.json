@@ -1,0 +1,41 @@
+{
+  "name": "bdo_mysql",
+  "version": "1.0.0",
+  "description": "BDO API - MySQL DB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start.dev": "nodemon --inspect=0.0.0.0 server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Adrian Zenteno <azlara@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "0.4.16",
+    "config": "2.0.1",
+    "express": "4.16.3",
+    "express-validator": "5.3.0",
+    "helmet": "3.13.0",
+    "html-pdf-node": "^1.0.8",
+    "is-base64": "0.0.6",
+    "jsonwebtoken": "8.3.0",
+    "moment": "2.22.2",
+    "moment-timezone": "0.5.21",
+    "morgan": "1.9.0",
+    "multer": "1.3.1",
+    "multer-azure": "2.0.1",
+    "mysql": "2.16.0",
+    "node-cron": "2.0.3",
+    "node-fetch": "^2.6.9",
+    "nodemailer": "6.9.1",
+    "request-ip": "2.1.1",
+    "rotating-file-stream": "^1.4.0",
+    "uuid": "3.3.2",
+    "winston": "3.0.0",
+    "winston-daily-rotate-file": "3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.3"
+  }
+}

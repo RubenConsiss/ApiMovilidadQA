@@ -1,0 +1,87 @@
+-- MySQL Workbench Synchronization
+-- Generated: 2019-01-07 09:49
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Consiss
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_respuestas_indicadores` 
+DROP COLUMN `orden`,
+ADD COLUMN `tipo` CHAR(1) NULL DEFAULT NULL AFTER `xxbdo_indicadores_id`,
+CHANGE COLUMN `fecha_respuesta` `fecha_respuesta` DATE NULL DEFAULT NULL AFTER `cr_tienda`,
+CHANGE COLUMN `evaluacion` `respuesta` TEXT NULL DEFAULT NULL AFTER `tipo`;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- MySQL Workbench Synchronization
+-- Generated: 2019-01-07 17:27
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Consiss
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_respuestas_indicadores` 
+DROP FOREIGN KEY `XXBDO_EVAL_IND_AREAS_STDS_ID_FK`,
+DROP FOREIGN KEY `XXBDO_EVAL_IND_INDICADORES_ID_FK`;
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_respuestas_indicadores` 
+DROP COLUMN `xxbdo_indicadores_id`,
+CHANGE COLUMN `xxbdo_areas_estandares_id` `xxbdo_areas_estandares_indicadores_id` VARCHAR(36) NOT NULL ,
+DROP INDEX `XXBDO_EVAL_IND_INDICADORES_ID_IDX` ;
+;
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_respuestas_indicadores` 
+ADD CONSTRAINT `XXBDO_EVAL_IND_AREAS_STDS_ID_FK`
+  FOREIGN KEY (`xxbdo_areas_estandares_indicadores_id`)
+  REFERENCES `xxbdo_v6`.`xxbdo_areas_estandares` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- MySQL Workbench Synchronization
+-- Generated: 2019-01-07 17:33
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Consiss
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_respuestas_indicadores` 
+DROP FOREIGN KEY `XXBDO_EVAL_IND_AREAS_STDS_ID_FK`;
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_respuestas_indicadores` 
+ADD INDEX `XXBDO_RESPUESTAS_INDICADORES_AREAS_STDS_ID_IDX` (`xxbdo_areas_estandares_indicadores_id` ASC) VISIBLE,
+DROP INDEX `XXBDO_EVAL_IND_AREAS_STDS_ID_IDX` ;
+;
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_respuestas_indicadores` 
+ADD CONSTRAINT `XXBDO_RESPUESTAS_INDICADORES_AREAS_STDS_ID_FK`
+  FOREIGN KEY (`xxbdo_areas_estandares_indicadores_id`)
+  REFERENCES `xxbdo_v6`.`xxbdo_areas_estandares_indicadores` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

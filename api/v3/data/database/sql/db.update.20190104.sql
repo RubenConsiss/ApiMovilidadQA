@@ -1,0 +1,128 @@
+-- MySQL Workbench Synchronization
+-- Generated: 2019-01-04 11:42
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Consiss
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_evaluacion_indicadores` 
+DROP FOREIGN KEY `XXBDO_EVAL_IND_INDICADORES_ID_FK`;
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_evaluacion_indicadores` 
+ADD INDEX `XXBDO_EVAL_IND_INDICADORES_ID_IDX` (`xxbdo_indicadores_id` ASC),
+DROP INDEX `XXBDO_EVAL_IND_INDICADORES_ID_IDX` ;
+;
+
+CREATE TABLE IF NOT EXISTS `xxbdo_v6`.`xxbdo_areas_estandares_indicadores` (
+  `id` VARCHAR(36) NOT NULL,
+  `xxbdo_areas_estandares_id` VARCHAR(36) NOT NULL,
+  `xxbdo_indicadores_id` VARCHAR(36) NOT NULL,
+  `activo` TINYINT(4) NULL DEFAULT 1,
+  `usuario` VARCHAR(100) NULL DEFAULT NULL,
+  `ip_address` VARCHAR(64) NULL DEFAULT NULL,
+  `fecha_creacion` TIMESTAMP NULL DEFAULT NULL,
+  `fecha_modificacion` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `XXBDO_AREAS_STDS_IND_INDICADORES_ID_IDX` (`xxbdo_indicadores_id` ASC) VISIBLE,
+  INDEX `XXBDO_AREAS_STDS_IND_INDICADORES_ID_IDX` (`xxbdo_areas_estandares_id` ASC) VISIBLE,
+  CONSTRAINT `XXBDO_AREAS_STDS_IND_INDICADORES_ID_FK`
+    FOREIGN KEY (`xxbdo_indicadores_id`)
+    REFERENCES `xxbdo_v6`.`xxbdo_indicadores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `XXBDO_AREAS_STDS_AREA_STDS_IND_AREAS_STDS_ID_FK`
+    FOREIGN KEY (`xxbdo_areas_estandares_id`)
+    REFERENCES `xxbdo_v6`.`xxbdo_areas_estandares` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_evaluacion_indicadores` 
+ADD CONSTRAINT `XXBDO_EVAL_IND_INDICADORES_ID_FK`
+  FOREIGN KEY (`xxbdo_indicadores_id`)
+  REFERENCES `xxbdo_v6`.`xxbdo_indicadores` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- MySQL Workbench Synchronization
+-- Generated: 2019-01-04 11:44
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Consiss
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_evaluacion_indicadores` 
+ADD INDEX `XXBDO_EVAL_IND_INDICADORES_ID_IDX` (`xxbdo_indicadores_id` ASC) VISIBLE,
+DROP INDEX `XXBDO_EVAL_IND_INDICADORES_ID_IDX` ;
+;
+
+CREATE TABLE IF NOT EXISTS `xxbdo_v6`.`xxbdo_areas_estandares_indicadores` (
+  `id` VARCHAR(36) NOT NULL,
+  `xxbdo_areas_estandares_id` VARCHAR(36) NOT NULL,
+  `xxbdo_indicadores_id` VARCHAR(36) NOT NULL,
+  `activo` TINYINT(4) NULL DEFAULT 1,
+  `usuario` VARCHAR(100) NULL DEFAULT NULL,
+  `ip_address` VARCHAR(64) NULL DEFAULT NULL,
+  `fecha_creacion` TIMESTAMP NULL DEFAULT NULL,
+  `fecha_modificacion` TIMESTAMP NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `XXBDO_AREAS_STDS_IND_INDICADORES_ID_IDX` (`xxbdo_indicadores_id` ASC) VISIBLE,
+  INDEX `XXBDO_AREAS_STDS_IND_AREA_STDS_ID_IDX` (`xxbdo_areas_estandares_id` ASC) VISIBLE,
+  CONSTRAINT `XXBDO_AREAS_STDS_IND_INDICADORES_ID_FK`
+    FOREIGN KEY (`xxbdo_indicadores_id`)
+    REFERENCES `xxbdo_v6`.`xxbdo_indicadores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `XXBDO_AREAS_STDS_IND_AREAS_STDS_ID_FK`
+    FOREIGN KEY (`xxbdo_areas_estandares_id`)
+    REFERENCES `xxbdo_v6`.`xxbdo_areas_estandares` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_evaluacion_indicadores` 
+ADD CONSTRAINT `XXBDO_EVAL_IND_INDICADORES_ID_FK`
+  FOREIGN KEY (`xxbdo_indicadores_id`)
+  REFERENCES `xxbdo_v6`.`xxbdo_indicadores` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- MySQL Workbench Synchronization
+-- Generated: 2019-01-04 17:06
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: Consiss
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ALTER TABLE `xxbdo_v6`.`xxbdo_areas_estandares_indicadores` 
+ADD COLUMN `orden` INT(11) NULL DEFAULT NULL AFTER `xxbdo_indicadores_id`;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+

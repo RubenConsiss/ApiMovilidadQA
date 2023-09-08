@@ -1,0 +1,5 @@
+-- Insertar nuevas etiquetas para los módulos de devoluciones y pedidos en la tabla de xxbdo_modulos
+-- ejecutar los siguientes queries en BD de producción xxbdo:
+INSERT INTO `xxbdo_modulos` (`id`, `nombre`, `codigo`, `descripcion`, `es_activo`, `es_visible`, `orden`, `activo`, `usuario`, `ip_address`, `fecha_creacion`, `fecha_modificacion`) VALUES ('1e0bd9d0-a849-4dde-95a7-cfd0c680a9f9', 'Devoluciones', 'devoluciones', 'Módulo de Devoluciones', '1', '1', '27', '1', NULL, NULL, NOW(), NOW()); 
+
+INSERT INTO `xxbdo_modulos` (`id`, `nombre`, `codigo`, `descripcion`, `es_activo`, `es_visible`, `orden`, `activo`, `usuario`, `ip_address`, `fecha_creacion`, `fecha_modificacion`) VALUES ('82c24347-89a9-442a-84e2-16223d1fca3a', 'Pedidos', 'pedidos', 'Módulo de Pedidos', '1', '1', '26', '1', NULL, NULL, NOW(), NOW());

@@ -1,0 +1,134 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": "8080"
+  },
+  "application": {
+    "tz": "America/Monterrey",
+    "api_authorization_key": "NT04iLCJjcnRpZW5kYSI6IjUwRURJIiwidXN1YXJpbyI6ImF6bGFyYUBob3RtYWlsLmNvbCIsInR6IjoiQW1lcmljYS9Nb250ZXJyZXkiLCJmZWNoYSI6IjIwMTgtMDktMDQiLCJpcCI6Ijo6ZmZmZjoxMjcuMC4wLjEiLCJpYXQiOjE1MzYwODIxNDEsImV4cCI6MTUzNjA4NTc0MX0V7xiJWjuaAlHHELVlRaBWfuqJdzWWp1aM3mxMMMLEKxg",
+    "api_jwt_key": "HNMbU52YkNJc0luUjZJam9pUVcxbGNtbGpZUzlOYjI1MFpYSnlaWGtpTENKbVpXTm9ZU0k2SWpJd01UZ3RNRGt0TURRaUxDSnBjQ0k2SWpvNlptWm1aam94TWpjdU1DNHdMakVpTENKcFlYUWlPakUxTXpZd09ESXhOREVzSW1WNGNDSTZNVFV6TmpBNE5UYzBNWDBWN3hpSldqdWFBbEhIRUxWbFJhQldmdXFKZHpXV3AxYU0zbXhNTU1MRUt4Z",
+    "api_jwt_expiresin": "12h",
+    "url": "https://movilidadentiendaapistaging.azurewebsites.net/",
+    "api_default_tz": "America/Monterrey",
+    "api_default_utc_offset": "-06:00",
+    "api_reportes_folder": "./assets/reportes/"
+  },
+  "database_prod": {
+    "mysql": {
+      "host": "movilidadentienda.mysql.database.azure.com",
+      "port": 3306,
+      "user": "moventiendaadmin@movilidadentienda-staging",
+      "password": "Comercio.2",
+      "database": "xxbdo_piloto",
+      "charset": "utf8_general_ci",
+      "timezone": "+00:00",
+      "dateStrings": true,
+      "multipleStatements": false
+    }
+  },
+  "databaseCron": {
+    "mysql": {
+      "host": "movilidadentienda-staging.mysql.database.azure.com",
+      "port": 3306,
+      "user": "moventiendaadmin@movilidadentienda-staging",
+      "password": "Comercio.2",
+      "database": "xxbdo_production_202010191432",
+      "charset": "utf8_general_ci",
+      "timezone": "+00:00",
+      "dateStrings": true,
+      "multipleStatements": false
+    }
+  },
+  "database": {
+    "mysql": {
+      "host": "movilidadentienda-staging.mysql.database.azure.com",
+      "port": 3306,
+      "user": "moventienda@movilidadentienda-staging",
+      "password": "Comercio.2",
+      "database": "xxbdo",
+      "charset": "utf8_general_ci",
+      "timezone": "+00:00",
+      "dateStrings": true,
+      "multipleStatements": false
+    }
+  },
+  "database_development": {
+    "mysql": {
+      "host": "movilidadentienda-staging.mysql.database.azure.com",
+      "port": 3306,
+      "user": "moventienda@movilidadentienda-staging",
+      "password": "Comercio.2",
+      "database": "xxbdo",
+      "charset": "utf8_general_ci",
+      "timezone": "+00:00",
+      "dateStrings": true,
+      "multipleStatements": false
+    }
+  },
+  "database_logs": {
+    "mysql": {
+      "host": "movilidadentienda-staging.mysql.database.azure.com",
+      "port": 3306,
+      "user": "moventienda@movilidadentienda-staging",
+      "password": "Comercio.2",
+      "database": "xxmovilidad_en_tienda",
+      "charset": "utf8_general_ci",
+      "timezone": "+00:00",
+      "dateStrings": true,
+      "multipleStatements": false
+    }
+  },
+  "database_logs_copy": {
+    "mysql": {
+      "host": "movilidadentienda-staging.mysql.database.azure.com",
+      "port": 3306,
+      "user": "moventienda@movilidadentienda-staging",
+      "password": "Comercio.2",
+      "database": "xxmovilidad_en_tienda",
+      "charset": "utf8_general_ci",
+      "timezone": "+00:00",
+      "dateStrings": true,
+      "multipleStatements": false
+    }
+  },
+  "azure": {
+    "cloudFunction": {
+      "htmlConvertPdf": "https://oxzfuncmovld01.azurewebsites.net/api/html-to-pdf"
+    },
+    "sas": {
+      "url": "https://movilidadentiendadev.blob.core.windows.net/",
+      "connection_string": "DefaultEndpointsProtocol=https;AccountName=movilidadentiendadev;AccountKey=TDNWCFAnI4D3pU3vUOt/ac/LznzBpnI5CXauA5DLNjWy4S/tmyqORN+jS4YiK7MvfslKONTeyxnfzT+SAPcW3A==;EndpointSuffix=core.windows.net",
+      "blob": {
+        "containers": {
+          "observaciones": {
+            "name": "xxbdo-observaciones",
+            "sharedAccessPolicy": "r"
+          },
+          "circulodecongruencia": {
+            "name": "xxbdo-circulo-de-congruencia",
+            "sharedAccessPolicy": "r"
+          },
+          "catalogos": {
+            "name": "xxbdo-catalogos",
+            "sharedAccessPolicy": "r"
+          },
+          "cedis": {
+            "name": "xxbdo-cedis",
+            "sharedAccessPolicy": "r"
+          },
+          "directos": {
+            "name": "xxbdo-directos",
+            "sharedAccessPolicy": "r"
+          }
+        },
+        "upload_max_filesize": 5242880
+      }
+    }
+  },
+  "mail": {
+    "host": "10.80.2.243",
+    "port": 25,
+    "user": "recibomercanciadirectos@oxxo.com",
+    "pass": "Ox.321#dire"
+  }
+}
