@@ -164,10 +164,8 @@ exports.send_email = async (req, res, next) => {
 
     let info = await transporter.sendMail({
       from: 'recibomercanciacedis@oxxo.com',
-      to: 'carlos.vazquez@consiss.mx',
-      bcc: 'ruben.cruz@consiss.com',
-      //to: results.results,
-      //bcc: 'juan.castrosilva@oxxo.com, eirud.juarez@serviciosexternos.com.mx, samely.herrera@sygno.mx, jose.antonio@sygno.com.mx',
+      to: results.results,
+      bcc: 'juan.castrosilva@oxxo.com, eirud.juarez@serviciosexternos.com.mx',
       subject: `FORMATO DE ACREDITACIÓN - (${current}) - ${NombreTienda}/${crtienda} - ${crplaza}`,
       attachments: attachments,
       text: `A continuación se comparte el resumen de la acreditación (${NombreTienda})\n\n` +
