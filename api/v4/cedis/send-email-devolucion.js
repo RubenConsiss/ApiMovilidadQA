@@ -48,30 +48,30 @@ exports.send_email = async (req, res, next) => {
     BolArticulosCaducos,
     supplierId } = req?.body;
 
-
-  if (!Route ||
-    !CRTienda ||
-    !Fecha ||
-    !NombreTienda ||
-    !Hora ||
-    !Transferencia ||
-    !IdOrden ||
-    !ListadoArticulosSobrantes?.length ||
-    !TotalSobrantes ||
-    !ListadoArticulosFaltantes.length ||
-    !TotalFaltantes ||
-    !ListadoArticulosDaniados?.length ||
-    !TotalDaniados ||
-    !ListadoArticulosCaducos?.length ||
-    !TotalCaducos ||
-    !BolArticulosSobrantes ||
-    !BolArticulosDaFaltantes ||
-    !BolArticulosDaniados ||
-    !BolArticulosCaducos ||
-    !supplierId
-  ) {
-    return res.status(400).json({ status: false, statusMessange: "Bad Request", message: "Campos perdidos en el body" })
-  }
+    if (
+      typeof Route === 'undefined' ||
+      typeof CRTienda === 'undefined' ||
+      typeof NombreTienda === 'undefined' ||
+      typeof Fecha === 'undefined' ||
+      typeof Hora === 'undefined' ||
+      typeof Transferencia === 'undefined' ||
+      typeof IdOrden === 'undefined' ||
+      typeof ListadoArticulosSobrantes === 'undefined' ||
+      typeof TotalSobrantes === 'undefined' ||
+      typeof BolArticulosSobrantes === 'undefined' ||
+      typeof ListadoArticulosFaltantes === 'undefined' ||
+      typeof TotalFaltantes === 'undefined' ||
+      typeof ListadoArticulosDaniados === 'undefined' ||
+      typeof TotalDaniados === 'undefined' ||
+      typeof ListadoArticulosCaducos === 'undefined' ||
+      typeof TotalCaducos === 'undefined' ||
+      typeof BolArticulosDaFaltantes === 'undefined' ||
+      typeof BolArticulosDaniados === 'undefined' ||
+      typeof BolArticulosCaducos === 'undefined' ||
+      typeof supplierId === 'undefined'
+    ) {
+      return res.status(400).json({ status: false, statusMessange: "Bad Request", message: "Campos perdidos en el body" })
+    }
 
   try {
     const current = moment().format("YYYY-MM-DD")
@@ -165,7 +165,7 @@ exports.send_email = async (req, res, next) => {
     let info = await transporter.sendMail({
       from: 'recibomercanciacedis@oxxo.com',
       to: results.results,
-      bcc: 'juan.castrosilva@oxxo.com, eirud.juarez@serviciosexternos.com.mx, samely.herrera@sygno.mx, jose.antonio@sygno.com.mx',
+      bcc: 'juan.castrosilva@oxxo.com, eirud.juarez@serviciosexternos.com.mx',
       subject: `FORMATO DE ACREDITACIÓN - (${current}) - ${NombreTienda}/${crtienda} - ${crplaza}`,
       attachments: attachments,
       text: `A continuación se comparte el resumen de la acreditación (${NombreTienda})\n\n` +
@@ -175,7 +175,7 @@ exports.send_email = async (req, res, next) => {
         `Número de Ruta: ${Route}\n` +
         `Transferencia: ${Transferencia}\n\n` +
         `Cualquier duda o comentario.\n\n` +
-        `Favor de comunicarse al siguiente contacto: Jorge Loya Bracamonte (jorge.loya@oxxo.com)\n\n`
+        `Favor de comunicarse a los siguientes contactos: Mauricio Adrián García Silva (adrian.garcia@oxxo.com), Rosa Yazmin García Martínez (rosa.garciam@oxxo.com)\n\n`
     });
 
     if (info.messageId) {

@@ -45,6 +45,8 @@ exports.send_email = async (req, res, next) => {
     Transferencia,
     Fecha,
     Hora_Entrega,
+    Fecha_Inicio,
+    Hora_Inicio,
     Cedis,
     ticket } = req.body;
 
@@ -74,7 +76,19 @@ exports.send_email = async (req, res, next) => {
 
   try {
     const current = moment().format("YYYY-MM-DD")
+    let FechaIni = Fecha_Inicio
+    let HoraIni = Hora_Inicio
 
+    if (typeof FechaIni === "undefined")
+    {
+      FechaIni = " "
+    }
+
+    if (typeof HoraIni === "undefined")
+    {
+      HoraIni = " "
+    }
+    
     let transporter = await nodemailer.createTransport({
       host: "10.80.2.243",
       port: 25,
@@ -157,14 +171,16 @@ exports.send_email = async (req, res, next) => {
     let info = await transporter.sendMail({
       from: 'recibomercanciacedis@oxxo.com',
       to: results.results,
-      bcc: 'juan.castrosilva@oxxo.com, eirud.juarez@serviciosexternos.com.mx, samely.herrera@sygno.mx, jose.antonio@sygno.com.mx',
+      bcc: 'juan.castrosilva@oxxo.com, eirud.juarez@serviciosexternos.com.mx',
       subject: `FORMATO UNICO DE ENTREGA - (${current}) - ${Tienda}/${crtienda} - ${crplaza}`,
       attachments: attachments,
       text: `A continuación se comparte el resumen de la entrega en tienda (${Tienda})\n\n` +
         `Cedis: ${Cedis}\n` +
         `Plaza: ${crplaza} ${Plaza}\n` +
         `Tienda: ${Tienda}\n` +
-        `Fecha: ${Fecha}\n` +
+        `Fecha de Inicio: ${FechaIni}\n` +
+        `Hora de Inicio: ${HoraIni}\n` +
+        `Fecha de Entrega: ${Fecha}\n` +
         `Hora de Entrega: ${Hora_Entrega}\n` +
         `Número de Ruta: ${Nu_Ruta}\n` +
         `Transferencia: ${Transferencia}\n\n` +
